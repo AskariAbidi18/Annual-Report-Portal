@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://assets.onecompiler.app/42q89985t/42qasq4tf/images-2.jpeg" alt="Institute Logo">
+        </div>
+        <ul>
+            <li><a href="#">MY REPORTS</a></li>
+        </ul>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <section class="dashboard">
+        <h1>User Dashboard</h1>
+        <p>Welcome! You can create and manage your departmental reports here.</p>
+        
+        <!-- Fixed Questionnaire -->
+        <div class="questionnaire">
+            <h2>Departmental Questions</h2>
+            <form id="questionnaireForm" action="/report/" method="post">
+                {% csrf_token %}
+               <label for="dep">1. Department:</label>
+                <input type="text" id="depT" name="dept" required>
+                
+                <label for="numStudents">2. Number of students:</label>
+                <input type="number" id="numStudents" name="numStudents" required>
+
+                <label for="deptAvg">3. Department average:</label>
+                <input type="number" id="deptAvg" name="deptAvg" required step="0.01">
+
+                <label for="publications">4. Publications if any:</label>
+                <textarea id="publications" name="publications" rows="3"></textarea>
+
+                <label for="patents">5. Patents if any:</label>
+                <textarea id="patents" name="patents" rows="3"></textarea>
+
+                <label for="achievements">6. Achievements if any:</label>
+                <textarea id="achievements" name="achievements" rows="3"></textarea>
+
+                <label for="awards">7. Awards:</label>
+                <textarea id="awards" name="awards" rows="3"></textarea>
+
+                <label for="alumniAchievements">8. Alumni achievements:</label>
+                <textarea id="alumniAchievements" name="alumniAchievements" rows="3"></textarea>
+
+                <label for="startups">9. Any startups:</label>
+                <textarea id="startups" name="startups" rows="3"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+       
+        
+        <!-- View Report Button at the Bottom -->
+        <button class="view-report-btn" onclick="viewReport()">View Report</button>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>

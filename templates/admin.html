@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://assets.onecompiler.app/42q89985t/42qasq4tf/images-2.jpeg" alt="Institute Logo">
+        </div>
+        <button>
+        <a class="logout-btn" onclick= "logout()">Logout</button>
+    </nav>
+
+    <section class="dashboard">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome! You can manage departmental reports here.</p>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search reports...">
+        </div>
+
+        <!-- Department Dropdown -->
+        <!-- <div class="department-dropdown">
+            <label for="departments">Select Department:</label>
+            <select id="departments">
+                <option value="cse-core">CSE (Core)</option>
+                <option value="cse-aiml">CSE AIML</option>
+                <option value="cs-ds">CS DS</option>
+                <option value="cs-iot">CS IOT</option>
+                <option value="cs-it">CS IT</option>
+                <option value="ece">ECE</option>
+                <option value="eee">EEE</option>
+                <option value="aiml">AIML</option>
+                <option value="civil">CIVIL</option>
+                <option value="mechanical">MECHANICAL</option>
+            </select>
+        </div> -->
+        <form method="GET" action="{% url 'download_pdf' %}">
+            <div class="department-dropdown">
+                <label for="departments">Select Department:</label>
+                <select id="departments" name="department">
+                    <option value="CSE (CORE)">CSE (Core)</option>
+                    <option value="CSE AIML">CSE AIML</option>
+                    <option value="CS DS">CS DS</option>
+                    <option value="CS IOT">CS IOT</option>
+                    <option value="CS IT">CS IT</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="AIML">AIML</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECHANICAL">MECHANICAL</option>
+                </select>
+            </div>
+            <button type="submit" class="button">Generate Report</button>
+        </form>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
